@@ -13,7 +13,7 @@ from app.inference import bp
 MODELS_TO_RUN = { 'juan': ['/v1.5-2500/', '/something_else']}
 
 
-@bp.route('/run_inference', methods=['POST'])
+@bp.route('/inference', methods=['POST'])
 def generate_image():
     query = request.form['query'].lower()
     user = session['username']

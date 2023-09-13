@@ -21,4 +21,4 @@ def create_app(config_class=config):
     if (os.environ.get("FLASK_ENV") == "development"):
         return app
     elif (os.environ.get("FLASK_ENV") == "production"):
-        serve(app, host='0.0.0.0', port=5002)
+        serve(app, host='0.0.0.0', port=5003)
