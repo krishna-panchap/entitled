@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+{{ message | safe }}
+<div class="container2" style="display: flex; justify-content: center; align-items: center;">    
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+    </style>
+    <div id="imagebox" style="margin-top:10px; margin-left: auto; margin-right: auto;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info" style="margin: 0 auto; border-color: grey;">
+            <div class="panel-heading" style="background-color: #CFCFCF; border-color: grey;">
+                <div class="panel-title" style="text-align: center; color: black;">Welcome to</div>
+                <div style="display: flex; justify-content: center;">
+                    <img src="../static/images/entitled-logo.png" alt="Logo" style="max-width: 35%; height: auto;">
+                </div>
+            </div>  
+            <div class="panel-body" >
+                <p style="text-align: center;">Log in to get started</p>
+                <form action="/index" method="POST">                            
+                    <form  class="form-horizontal" method="post" >
+                        <div style="background: url('../static/images/entitled-example-output.png') no-repeat center center; background-size: cover; margin: 0; padding: 0;">
+                            <div id="div_id_name" class="form-group required d-flex justify-content-center">
+                                <!-- <label for="id_name" class="control-label col-md-4 ">username</label> -->
+                                <div class="controls col-md-8 ">
+                                    <input class="input-md  textinput textInput form-control" id="username" name="username" placeholder="username" style="margin-bottom: 10px" type="text" style="border-radius: 25px;" />
+                                </div>
+						    </div>
+
+                            <div id="div_id_pass" class="form-group required d-flex justify-content-center">
+                                <!-- <label for="id_pass" class="control-label col-md-4 ">password</label> -->
+                                <div class="controls col-md-8 ">
+                                    <input class="input-md  textinput textInput form-control" id="password" name="password" placeholder="password" style="margin-bottom: 10px" type="text" style="border-radius: 25px;" />
+                                </div>
+						    </div>
+                        </div>
+
+                        <div class="form-group d-flex justify-content-center"> 
+                            <button type="submit" name="submit" value="namepass" class="btn btn-primary btn btn-info grow" id="submit-id-signup" onclick="validateForm()" style="background-color: #CFCFCF; border-color: grey;">let me in</button>
+                        </div> 
+                        <script>
+                            var btn = document.getElementsByClassName('grow');
+                            for (var i = 0; i < btn.length; i++) {
+                                btn[i].addEventListener('mouseover', function() {
+                                    this.style.transform = 'scale(1.2)';
+                                    this.style.backgroundColor = '#e8e292';
+                                });
+                                btn[i].addEventListener('mouseout', function() {
+                                    this.style.transform = 'scale(1.0)';
+                                    this.style.backgroundColor = '#CFCFCF';
+                                });
+                            }
+
+                            function validateForm() {
+                                var username = document.getElementById('username').value;
+                                var password = document.getElementById('password').value;
+                                if (!username || !password) {
+                                    alert("Username or Password cannot be empty");
+                                    return false;
+                                }
+                                return true;
+                            }
+                        </script>
+
+{% endblock %}
