@@ -3,7 +3,7 @@ from app.main import bp
 import pandas as pd
 from config import basedir
 import os
-from ..constants.models import MODELS_TO_RUN
+from ..constants.models import USER_MODELS
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
@@ -32,8 +32,8 @@ def index():
                 session["username"] = username
                 session["password"] = password
                 # get the models 
-                if username in MODELS_TO_RUN:
-                    session["models"] = MODELS_TO_RUN[username]
+                if username in USER_MODELS:
+                    session["models"] = USER_MODELS[username]
                 else:
                     flash("Invalid username", "inval")
                     return render_template("pass.html")

@@ -6,9 +6,9 @@
     style="margin: 20px auto"
     class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 d-flex justify-content-center"
   >
-    <div class="panel panel-info" style="margin: 0 auto;">
-      <div class="panel-heading text-center">
-        <div class="panel-title">Hi {{session['username']}}! Welcome to</div>
+    <div class="panel panel-info" style="margin: 0 auto; border-color: grey;"">
+      <div class="panel-heading text-center" style="background-color: #CFCFCF; border-color: grey;">
+        <div class="panel-title" style="color: black;">Hi {{ session['username'].capitalize() }}! Welcome to</div>
         <img src="../static/images/entitled-logo.png" alt="Logo" style="max-width: 50%; height: auto;">
       </div>
       <div class="panel-body" style="text-align: center;">
@@ -16,7 +16,7 @@
           <form class="form-horizontal" method="post">
             <div id="div_id_name" class="form-group required d-flex justify-content-center flex-column">
               <div class="controls col-md-8 mx-auto">
-                <select name="model" id="model" class="form-control">
+                <select name="model_name" id="model_name" class="form-control">
                   {% for model in session['models'] %}
                   <option value="{{ model }}">{{ model }}</option>
                   {% endfor %}
@@ -31,7 +31,7 @@
                   name="query"
                   style="margin: 10px auto"
                   type="text"
-                  placeholder="try me"
+                  placeholder="Enter a Prompt"
                 />
               </div>
               <div class="form-group d-flex justify-content-center">
@@ -41,9 +41,13 @@
                   value="finetuned"
                   class="btn btn-primary btn btn-info"
                   id="submit-id-signup"
+                  style="background-color: #CFCFCF; border-color: grey;"
                 >
                   ready
                 </button>
+              </div>
+              <div class="form-group d-flex justify-content-center">
+                <p style="color: rgb(199, 194, 194);">Rendering from your AI model may take a few minutes</p>
               </div>
             </div>
           </form>
