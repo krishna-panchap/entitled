@@ -31,10 +31,10 @@ def generate_image():
     if not query:
         flash("Please enter a prompt", "inval")
     input_prompt = f"{instance_prompt} {query}"
-    currentModelPipe = StableDiffusionPipeline.from_pretrained(model_path, torch_dtype=torch.float16, ignore_mismatched_sizes=True).to(DEVICE)
+    currentModelPipe = StableDiffusionPipeline.from_pretrained(model_path, torch_dtype=torch.float16).to(DEVICE)
     image_urls = []
     for i in range(4):
-        result_image = currentModelPipe(prompt=query, num_inference_steps=120).images[0]
+        result_image = currentModelPipe(prompt=input_prompt, num_inference_steps=150).images[0]
         image_name = f"image_{random.randint(1, 1000000)}"
         result_image.save(basedir + f"/app/static/userimages/{image_name}.png")
         imageurl = os.environ.get("CLOUD_URL") + f"/static/userimages/{image_name}.png"
