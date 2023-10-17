@@ -1,4 +1,3 @@
-
 a cowa cat sitting on a cow
 test
 test
@@ -53,3 +52,4 @@ a school
 an asian woman with a baby carriage
 a hispanic boy with ice cream
 a cat with a mirror
+a cat sitting on a cow

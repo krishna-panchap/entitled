@@ -12,6 +12,7 @@ from app.inference import bp
 import random
 from multiprocessing import Pool
 import torch
+import time
 
 @bp.route('/inference', methods=['POST'])
 def generate_image():
@@ -23,7 +24,9 @@ def generate_image():
     model_path = basedir + f"/model_artifacts/{model}"
     print(model_path)
     with open(basedir+'/app/static/queries/queries.txt', 'a') as f:
-        f.write(query)
+        # Write in the format of [date][time][model][prompt]
+        to_write = time.strftime("%Y%m%d-%H%M%S") + " " + model + " " + query
+        f.write(to_write)
         f.write('\n')
 
     
