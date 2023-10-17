@@ -25,7 +25,7 @@ def generate_image():
     print(model_path)
     with open(basedir+'/app/static/queries/queries.txt', 'a') as f:
         # Write in the format of [date][time][model][prompt]
-        to_write = time.strftime("%Y%m%d-%H%M%S") + " " + model + " " + query
+        to_write = time.strftime("%Y:%m:%d–-%H:%M:%S") + " " + model + " " + query
         f.write(to_write)
         f.write('\n')
 
